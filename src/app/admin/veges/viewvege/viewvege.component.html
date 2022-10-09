@@ -1,0 +1,26 @@
+<h1>Vegetable Details</h1>
+
+    <table>
+        <tr>
+            <td>Vegetable Id</td>
+            <td>{{vege.id}}</td>
+        </tr>
+        <tr>
+            <td>Vegetable Name</td>
+            <td>{{vege.name}}</td>
+        </tr>
+        <tr>
+            <td>Vegetable Seller</td>
+            <td>{{vege.seller}}</td>
+        </tr>
+        <tr>
+            <td>Vegetable Price</td>
+            <td>{{vege.price}}</td>
+        </tr>
+    </table>
+    <br>
+    <img src="{{vege.retrievedImage}}" height="200" width="200">
+    <br><br>
+
+    <a class="btn btn-small btn-warning" (click)="editVege()">edit</a> 
+    <a class="btn btn-small btn-danger" (click)="deleteVege()">delete</a>

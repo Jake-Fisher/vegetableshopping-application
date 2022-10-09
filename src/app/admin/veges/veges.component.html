@@ -1,0 +1,28 @@
+<h1>Vegetables Admin</h1>
+<a class="btn btn-primary mb-3" (click)="addVege()">Add Vegetable</a>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Vegetable Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vege of veges">
+          <td>{{vege.id}}</td>
+          <td>{{vege.name}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewVege(vege.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-addvege *ngIf="action === 'edit' || action === 'add'" [vege]="selectedVege" (vegeAddedEvent)="refreshData()"></app-addvege>
+    <app-viewvege *ngIf="action === 'view'" [vege]="selectedVege" (vegeDeletedEvent)="refreshData()"></app-viewvege>
+  </div>
+</div>

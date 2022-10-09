@@ -1,0 +1,20 @@
+<h1>{{vege.id == null ? 'Add' : 'Edit'}} Vegetable - {{vege.id}}</h1>
+
+<form>
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Vegetable Name" [(ngModel)]="vege.name" name="name">
+
+  <label for="seller">Seller</label>
+  <input type="text" class="form-control" id="seller" placeholder="seller" name="seller" [(ngModel)]="vege.seller">
+
+  <label for="seller">Price</label>
+  <input type="text" class="form-control" id="price" placeholder="price" name="price" [(ngModel)]="vege.price">
+
+  <div class="form-group" *ngIf="vege.id == null">
+    <br>
+    <input type="file" (change)="onFileChanged($event)">
+    <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+  </div>
+  <br>
+  <button type="button" class="btn btn-success" (click)="saveVege()">Save Vegetable</button>
+</form>
