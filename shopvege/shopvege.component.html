@@ -1,0 +1,56 @@
+<div class="container row">
+    <div class="col-md-2">
+        <h1>Vegetables</h1>
+    </div>
+    <div class="col-md-10 custom-products-cart-container">
+        <div class="offset-md-8">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <br>
+                    <a href="#" class="btn btn-info btn-lg" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="fa fa-shopping-cart">
+                            Vegetables Added In Cart:
+                        </span>
+                        <span class="caret">{{cartVeges.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu" style="width:250px">
+                        <li *ngFor="let item of cartVeges">
+                            <div class="item product-cart-item row" style="width:250px">
+                                <div class="col-md-8" *ngIf="item">{{item.name}}</div>
+                                <div class="col-md-4" *ngIf="item"><strong>Rs.{{item.price}}</strong></div>
+                            </div>
+                        </li>
+                        <hr>
+                        <li><a class="btn btn-small btn-success" role="button" (click)="goToCart()">View Cart</a></li>
+                        <br>
+                        <li *ngIf="cartVeges.length > 0">
+                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
+<hr>
+
+<div class="container row" style="margin-left:200px" >
+    <div class="col-md-4" *ngFor="let vege of veges;let i=index">
+        <div class="card card-block" style="margin-bottom:20px; padding-bottom:10px;">
+            <img class="custom-image-style" img src="{{vege.retrievedImage}}" height="200" width="200" style="margin-left: 60px;
+          margin-top: 10px">
+            <div class="vege-desc-container row">
+                <div>
+                    <p style="margin-left: 60px"><strong>{{vege.name}}: Rs. {{vege.price}}/kg </strong></p>
+                    <p style="margin-left: 60px">{{vege.seller}}</p>
+                </div>
+                <div class="offset-md-4 col-md-4">
+                    <button class="btn btn-primary btn-sm" (click)="addToCart(vege.id)" > Add To Cart </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
